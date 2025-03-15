@@ -23,7 +23,7 @@ const PricingPersonal = () => {
   const [fridge, setFridge] = useState(0);
   const [microwave, setMicrowave] = useState(0);
   const [oven, setOven] = useState(0);
-  const [sheets, setSheets] = useState(0);
+  const [kitchenHood, setKitchenHood] = useState(0);
   const [surfaceRugs, setSurfaceRugs] = useState(0);
 
   useEffect(() => {
@@ -53,11 +53,11 @@ const PricingPersonal = () => {
 
     const convertToTime = (number) => { 
       setPrice(
-        selectedFrequency === "Månedligt"
+        selectedFrequency === "Månedligt" || selectedFrequency === "1time"
           ? (number * (mainPrice / 60) * 1.25).toFixed(2)
           : (number * (mainPrice / 60)).toFixed(2)
       );
-      setFirstTimePrice((number * (mainPrice / 60) * 0.7).toFixed(2));
+      setFirstTimePrice((number * (mainPrice / 60) * 0.85).toFixed(2));
       setPriceSkatDeduction((number * (mainPrice / 60) * 0.74).toFixed(2));
     };
 
@@ -67,7 +67,7 @@ const PricingPersonal = () => {
           fridge +
           microwave +
           oven +
-          sheets +
+          kitchenHood +
           surfaceRugs +
           cleaningTimeWithoutOptions
         : pets +
@@ -75,7 +75,7 @@ const PricingPersonal = () => {
           fridge +
           microwave +
           oven +
-          sheets +
+          kitchenHood +
           surfaceRugs +
           cleaningTimeWithoutOptions;
 
@@ -87,7 +87,7 @@ const PricingPersonal = () => {
     fridge,
     microwave,
     oven,
-    sheets,
+    kitchenHood,
     surface,
     surfaceRugs,
     selectedFrequency,
@@ -107,7 +107,7 @@ const PricingPersonal = () => {
       </h1>
       <h5 className="text-xl mb-8 text-center font-medium">
         Priserne for rengøringsservice i Aarhus koster fra{" "}
-        <span className="text-4xl font-extrabold">240</span> Kr./time (ekskl.
+        <span className="text-4xl font-extrabold">260</span> Kr./time (ekskl.
         moms)
       </h5>
       <div className="flex flex-col tablet:flex-row items-center justify-center w-full gap-4">
@@ -260,23 +260,23 @@ const PricingPersonal = () => {
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  onChange={(e) => setMicrowave(e.target.checked ? 20 : 0)}
+                  onChange={(e) => setMicrowave(e.target.checked ? 30 : 0)}
                 />
                 Mikrobølgeovn
               </label>
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  onChange={(e) => setOven(e.target.checked ? 40 : 0)}
+                  onChange={(e) => setOven(e.target.checked ? 120 : 0)}
                 />
                 Ovn
               </label>
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  onChange={(e) => setSheets(e.target.checked ? 20 : 0)}
+                  onChange={(e) => setKitchenHood(e.target.checked ? 30 : 0)}
                 />
-                Lagen
+                Køkkenhætte
               </label>
             </div>
           </div>

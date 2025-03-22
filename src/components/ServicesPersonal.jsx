@@ -11,20 +11,24 @@ const ServiceCard = styled.div`
 
 const ServicesPersonal = () => {
   return (
-    <section id="services" className="py-16 sm:py-20 bg-neutral-50">
+    <section id="services" className="px-4 md:pt-24
+     mb-40 md:mb-20 flex flex-col items-center">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Find din ideelle plan</h2>
+        
+      <header className="text-center mb-8">
+        <h2 className="text-4xl font-bold tablet:text-[3rem]">
+          Find din ideelle plan.
+        </h2>
+      </header>
+        <div className="text-center mb-12 sm:mb-16"> 
           <p className="text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto">
             Vælg den plan, der passer bedst til dine behov. Alle vores rengøringstjenester er miljøvenlige og professionelle.
           </p>
         </div>
 
         {/* Container for service cards */}
-        <div className="flex justify-center">
-          <div className=" 
-          w-full   flex flex-1 justify-around items-center">
-            {pricingPersonal.map((item) => (
+              <div className="w-full h-[30rem] flex p-8 flex-wrap justify-center gap-6">
+             {pricingPersonal.map((item) => (
               <ServiceCard
                 key={item.id}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 w-full max-w-sm"
@@ -52,13 +56,12 @@ const ServicesPersonal = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button href="#contact" className="w-full" shiny={true}>
+                  <a href="#contact"><Button href="#contact" className="w-full" shiny={true}>
                     Få et tilbud
-                  </Button>
+                  </Button></a>
                 </div>
               </ServiceCard>
-            ))}
-          </div>
+            ))} 
         </div>
       </div>
     </section>

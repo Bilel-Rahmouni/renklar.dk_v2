@@ -31,7 +31,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
                 <BsClockFill className="text-lg sm:text-xl text-primary-500" />
-                <span className="text-sm sm:text-base">Man - Søn: 08:00 - 18:00</span>
+                <span className="text-sm sm:text-base">Man - Søn: 06:00 - 21:00</span>
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-400">
               <span>Developed by:</span>
               <a 
-                href="https://pxlzstudio.com" 
+                href="https://pxlz.dk" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"

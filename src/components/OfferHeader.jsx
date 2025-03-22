@@ -4,7 +4,7 @@ function OfferHeader() {
   return (
     <div
       className="absolute
-      top-14 
+      top-20 
       left-0  
       w-screen laptop:h-9
       z-40

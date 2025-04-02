@@ -115,10 +115,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 sm:space-x-4 text-xs sm:text-sm">
               <a href="/terms" className="text-gray-400 hover:text-primary-500 transition-colors">
                 Vilkår og Betingelser
-              </a>
-              <a href="/privacy" className="text-gray-400 hover:text-primary-500 transition-colors">
-                Privatlivspolitik
-              </a>
+              </a> 
             </div>
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-400">
               <span>Developed by:</span>

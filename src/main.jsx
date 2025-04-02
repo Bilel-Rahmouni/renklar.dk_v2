@@ -11,7 +11,7 @@ import "./index.css";
 // Define the router with all routes
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
-  { path: "/terms-and-conditions", element: <TermsAndConditions /> },
+  { path: "/terms", element: <TermsAndConditions /> },
   { path: "/faq", element: <FaqScreen /> },
   { path: "/blogs-personal", element: <BlogsPersonal /> },
   { path: "/blogs-business", element: <BlogsBusiness /> },

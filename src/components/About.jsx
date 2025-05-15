@@ -36,8 +36,8 @@ function About() {
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="p-6 bg-neutral-50 rounded-lg">
               <div className=" flex flex-row items-start">
-                  <IconWrapper>
-                  <HiOutlineSparkles className="text-primary-600 text-base" />
+                  <IconWrapper className="text-primary-600 text-base mr-6">
+                  <HiOutlineSparkles className="text-primary-600 text-base " />
                   </IconWrapper>
            <h3 className="text-lg font-semibold mb-2">Kvalitet</h3>
               </div>
@@ -48,7 +48,7 @@ function About() {
 
               <div className="p-6 bg-neutral-50 rounded-lg flex flex-col items-start">
               <div className=" flex flex-row items-start">
-                   <IconWrapper>
+                      <IconWrapper className="text-primary-600 text-base mr-6">
                   <VscWorkspaceTrusted className="text-primary-600 text-base" />
                   </IconWrapper>
                 <h3 className="text-lg font-semibold mb-2">Tillid</h3>
@@ -60,7 +60,7 @@ function About() {
 
               <div className="p-6 bg-neutral-50 rounded-lg flex flex-col items-start">
               <div className=" flex flex-row items-start">
-                   <IconWrapper>
+                   <IconWrapper className="text-primary-600 text-base mr-6">
                   <TbLeaf className="text-primary-600 text-base" />
                   </IconWrapper>
                 <h3 className="text-lg font-semibold mb-2">Bæredygtighed</h3>
@@ -72,7 +72,7 @@ function About() {
 
               <div className="p-6 bg-neutral-50 rounded-lg flex flex-col items-start">
               <div className=" flex flex-row items-start">
-                   <IconWrapper>
+                   <IconWrapper className="text-primary-600 text-base mr-6">
                   <TbPigMoney className="text-primary-600 text-base" />
                   </IconWrapper>
                 <h3 className="text-lg font-semibold mb-2">Gennemsigtige Priser</h3>

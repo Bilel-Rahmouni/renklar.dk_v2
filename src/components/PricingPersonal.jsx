@@ -112,19 +112,19 @@ const PricingPersonal = () => {
   };
 
   return (
-    <div className="mb-10 mt-32 sm:mt-52 pt-12 sm:pt-24 px-4 md:px-8 lg:px-16 flex flex-col items-center" id="pricing">
-      <h1 className="text-3xl sm:text-4xl mb-4 sm:mb-8 text-center font-black">
+    <div className="relative mb-60 sm:mb-80 md:mb-96 lg:mb-[32rem] mt-60 sm:mt-80 md:mt-96 lg:mt-[32rem] pt-24 sm:pt-32 md:pt-40 lg:pt-48 px-4 md:px-8 lg:px-16 flex flex-col items-center" id="pricing">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-24 sm:mb-32 md:mb-40 text-center font-black">
         Ingen skjulte gebyrer - bare gennemsigtige priser.
       </h1>
-      <h5 className="text-lg sm:text-xl mb-6 sm:mb-8 text-center font-medium">
+      <h5 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-24 sm:mb-32 md:mb-40 text-center font-medium">
         Priserne for rengøringsservice i Aarhus koster fra{" "}
-        <span className="text-4xl font-extrabold">260</span> Kr./time (ekskl. moms)
+        <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold">260</span> Kr./time (ekskl. moms)
       </h5>
-      <div className="flex flex-col md:flex-row items-start justify-around w-full gap-6 sm:gap-8">
+      <div className="relative flex flex-col lg:flex-row items-start justify-around w-full gap-24 sm:gap-32 md:gap-40">
         {/* Left Side - Form Inputs */}
-        <div className="flex flex-col w-full md:w-2/3 space-y-4 sm:space-y-6">
+        <div className="relative z-10 flex flex-col w-full lg:w-2/3 space-y-12 sm:space-y-16">
           {/* Frequency of Cleaning */}
-          <div>
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
             <div className="text-md flex items-center font-semibold mb-3 sm:mb-4">
               <CiCalendar
                 size={24}
@@ -134,12 +134,12 @@ const PricingPersonal = () => {
               Hvor ofte ønsker du at få rengjort?
             </div>
             <div className="flex flex-wrap gap-3 sm:gap-5">
-              {["Ugentligt", "Hver 2. uge", "Månedligt", "1time"].map((freq, index) => (
+              {["Ugentligt", "Hver 2. uge", "Månedligt", "1time"].map((freq) => (
                 <label key={freq} className="flex items-center">
                   <input
                     type="radio"
                     value={freq}
-                    className="mr-2"
+                    className="mr-2 w-4 h-4"
                     checked={selectedFrequency === freq}
                     onChange={handleFrequencyChange}
                   />
@@ -150,7 +150,7 @@ const PricingPersonal = () => {
           </div>
 
           {/* Surface Area */}
-          <div>
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
             <div className="text-md flex items-center font-semibold mb-4">
               <BsHouse
                 size={24}
@@ -168,18 +168,20 @@ const PricingPersonal = () => {
                 max={200}
                 step={5}
                 onChange={(e) => setSurface(Number(e))}
+                className="w-full"
               />
-              <p className="ml-4">{surface}m²</p>
+              <p className="ml-4 min-w-[60px]">{surface}m²</p>
             </div>
           </div>
 
           {/* Bathrooms */}
-          <div>
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
             <div className="text-md flex items-center font-semibold mb-4">
               <PiToiletLight
                 size={24}
                 color="white"
-                className="bg-sky-400 rounded-full p-1 mr-2"/>
+                className="bg-sky-400 rounded-full p-1 mr-2"
+              />
               Hvor mange badeværelser vil du gerne have rengjort?
             </div>
             <div className="flex items-center">
@@ -187,21 +189,23 @@ const PricingPersonal = () => {
                 handleStyle={{ background: "#1e90ff", borderColor: "#1e90ff" }}
                 defaultValue={1}
                 min={1}
-                max={25}
+                max={5}
                 step={1}
                 onChange={(e) => setBathrooms(Number(e))}
+                className="w-full"
               />
-              <p className="ml-4">{bathrooms}</p>
+              <p className="ml-4 min-w-[60px]">{bathrooms}</p>
             </div>
           </div>
 
           {/* Surface Rugs */}
-          <div>
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
             <div className="text-md flex items-center font-semibold mb-4">
               <PiRug
-               size={24}
+                size={24}
                 color="white"
-                className="bg-sky-400 rounded-full p-1 mr-2"/>
+                className="bg-sky-400 rounded-full p-1 mr-2"
+              />
               Hvor stort et areal er dækket af tæpper?
             </div>
             <div className="flex items-center">
@@ -212,25 +216,27 @@ const PricingPersonal = () => {
                 max={surface}
                 step={5}
                 onChange={(e) => setSurfaceRugs(Number(e))}
+                className="w-full"
               />
-              <p className="ml-4">{surfaceRugs}m²</p>
+              <p className="ml-4 min-w-[60px]">{surfaceRugs}m²</p>
             </div>
           </div>
 
           {/* Pets */}
-          <div>
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
             <div className="text-md flex items-center font-semibold mb-4">
               <PiDogLight
                 size={24}
                 color="white"
-                className="bg-sky-400 rounded-full p-1 mr-2"/>
+                className="bg-sky-400 rounded-full p-1 mr-2"
+              />
               Har du kæledyr?
             </div>
             <div className="flex space-x-4">
               <label className="flex items-center">
                 <input
                   type="radio"
-                  className="mr-2"
+                  className="mr-2 w-4 h-4"
                   checked={pets === 30}
                   onChange={() => setPets(30)}
                 />
@@ -239,7 +245,7 @@ const PricingPersonal = () => {
               <label className="flex items-center">
                 <input
                   type="radio"
-                  className="mr-2"
+                  className="mr-2 w-4 h-4"
                   checked={pets === 0}
                   onChange={() => setPets(0)}
                 />
@@ -249,43 +255,44 @@ const PricingPersonal = () => {
           </div>
 
           {/* Options */}
-          <div>
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
             <div className="text-md flex items-center font-semibold mb-4">
               <MdOutlineKitchen
-               size={24}
+                size={24}
                 color="white"
-                className="bg-sky-400 rounded-full p-1 mr-2"/>
+                className="bg-sky-400 rounded-full p-1 mr-2"
+              />
               Ønsker du at få rengjort en eller flere af disse muligheder?
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <label className="flex items-center">
                 <input
-                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
+                  className="w-4 h-4 mr-2"
                   onChange={(e) => setFridge(e.target.checked ? 30 : 0)}
                 />
                 Køleskab
               </label>
               <label className="flex items-center">
                 <input
-                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
+                  className="w-4 h-4 mr-2"
                   onChange={(e) => setMicrowave(e.target.checked ? 30 : 0)}
                 />
                 Mikrobølgeovn
               </label>
               <label className="flex items-center">
                 <input
-                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
+                  className="w-4 h-4 mr-2"
                   onChange={(e) => setOven(e.target.checked ? 120 : 0)}
                 />
                 Ovn
               </label>
               <label className="flex items-center">
                 <input
-                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
+                  className="w-4 h-4 mr-2"
                   onChange={(e) => setSheets(e.target.checked ? 30 : 0)}
                 />
                 Sengeklæder
@@ -295,9 +302,13 @@ const PricingPersonal = () => {
         </div>
 
         {/* Right Side - Price Summary */}
-        <div className="w-full md:w-1/3 sticky top-24 sm:top-32 flex flex-col items-center space-y-4 sm:space-y-6 p-4 sm:p-6 bg-gray-100 rounded-lg">
+        <div className="relative z-10 w-full lg:w-1/3 sticky top-60 sm:top-80 md:top-96 flex flex-col items-center space-y-12 sm:space-y-16 p-12 sm:p-16 bg-gray-100 rounded-lg shadow-lg">
           <h2 className="text-xl sm:text-2xl font-bold">Prisoversigt</h2>
           <div className="text-base sm:text-lg mb-4 w-full">
+            <div className="flex justify-between mt-2">
+              <span>Rengøringstid:</span>
+              <span>{time}</span>
+            </div>
             <div className="flex justify-between mt-2">
               <span>Pris:</span>
               <span>{price} DKK</span>
@@ -311,8 +322,8 @@ const PricingPersonal = () => {
               <span>{priceSkatDeduction} DKK</span>
             </div>
           </div>
-          <a href="#contact" className="z-30">
-            <Button className="mt-2" shiny={"true"}>
+          <a href="#contact" className="z-30 w-full">
+            <Button className="w-full mt-2" shiny={true}>
               Få rabatkupon nu!
             </Button>
           </a>

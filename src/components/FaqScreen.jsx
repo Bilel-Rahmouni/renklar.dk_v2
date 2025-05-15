@@ -33,20 +33,23 @@ const AccordionItem = ({ header, ...rest }) => (
 
 function FaqScreen() {
   return (
-    <div className="flex flex-col items-center justify-around py-16 sm:py-20 laptop:h-screen">
-      <p className="text-4xl mb-12 text-center font-bold tablet:text-[3rem]">
-        Frequently asked questions.
-      </p>
-      <div className="border-t w-2/3">
-        <Accordion transition transitionTimeout={200}>
-          {faq.map((item, index) => (
-            <AccordionItem key={index} header={item.question}>
-              <div className="bg-blue-200 p-5 -mx-3">{item.answer}</div>
-            </AccordionItem>
-          ))}
-        </Accordion>
+    <section className="min-h-screen flex flex-col items-center justify-center py-32 sm:py-40 md:py-48 lg:py-56">
+      <div className="container mx-auto px-4">
+        <p className="text-4xl mb-12 text-center font-bold tablet:text-[3rem]">
+          Frequently asked questions.
+        </p>
+        <div className="border-t w-2/3 mx-auto">
+          <Accordion transition transitionTimeout={200}>
+            {faq.map((item, index) => (
+              <AccordionItem key={index} header={item.question}>
+                <div className="bg-blue-200 p-5 -mx-3">{item.answer}</div>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
-    </div>
+      <div className="h-32 sm:h-40 md:h-48 lg:h-56"></div> {/* Spacer div */}
+    </section>
   );
 }
 

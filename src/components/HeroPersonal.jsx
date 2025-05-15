@@ -136,7 +136,7 @@ const HeroPersonal = () => {
             </div>
             <div className="text-center">
               <p className="text-sm text-black-300">Udflytningsrengøring</p>
-              <p className="text-3xl sm:text-4xl font-bold text-green-400">-30%</p>
+              <p className="text-3xl sm:text-4xl font-bold text-green-400">-15%</p>
               <p className="text-sm text-black-300">på udflytningsrengøring</p>
             </div>
           </div>

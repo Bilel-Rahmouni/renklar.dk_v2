@@ -3,107 +3,112 @@ import { Link } from "react-router-dom";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { PiRug, PiToiletLight, PiDogLight } from "react-icons/pi";
-import { BsHouse, BsPatchQuestion, BsCalendar4 } from "react-icons/bs";
+import { BsHouse } from "react-icons/bs";
 import { CiCalendar } from "react-icons/ci";
-
 import { MdOutlineKitchen } from "react-icons/md";
 import Button from "./design/Button";
 
 const PricingPersonal = () => {
-  const mainPrice = 325; // Price per hour
+  const mainPrice = 325; // Updated main price
   
-  // Define frequency options with their multipliers
-  const frequencyOptions = [
-    { id: 1, multiplier: 1.0 },    // Weekly
-    { id: 2, multiplier: 1.0 },   // Biweekly
-    { id: 3, multiplier: 1.25 },   // Monthly
-    { id: 4, multiplier: 1.25 }    // One-time
-  ];
-
-  const [selectedFrequency, setSelectedFrequency] = useState(1); 
-  const [price, setPrice] = useState(0);
-  const [firstTimePrice, setFirstTimePrice] = useState(0);
-  const [priceSkatDeduction, setPriceSkatDeduction] = useState(0);
+  const [selectedFrequency, setSelectedFrequency] = useState("Ugentligt");
+  const [time, setTime] = useState("01hr00min");
+  const [price, setPrice] = useState(mainPrice);
+  const [firstTimePrice, setFirstTimePrice] = useState(mainPrice);
+  const [priceSkatDeduction, setPriceSkatDeduction] = useState(mainPrice);
   
-  // Surface area (minutes per 10m²)
-  const [surface, setSurface] = useState(0);
-  const surfaceMinutesPer10m2 = 15; // 15 minutes per 10m²
-
-  // Bathrooms (minutes per bathroom)
-  const [bathrooms, setBathrooms] = useState(1);
-  const bathroomMinutes = 15; // 15 minutes per bathroom
-
-  // Pets (additional minutes)
+  // Surface area and cleaning time
+  const [surface, setSurface] = useState(5);
+  const [cleaningTimeWithoutOptions, setCleaningTimeWithoutOptions] = useState(60);
+  
+  // Additional options
   const [pets, setPets] = useState(0);
-  const petMinutes = 30; // 30 minutes for pets
-
-  // Additional options (minutes)
+  const [bathrooms, setBathrooms] = useState(1);
   const [fridge, setFridge] = useState(0);
   const [microwave, setMicrowave] = useState(0);
   const [oven, setOven] = useState(0);
-  const [kitchenHood, setKitchenHood] = useState(0);
+  const [sheets, setSheets] = useState(0);
   const [surfaceRugs, setSurfaceRugs] = useState(0);
 
-  const fridgeMinutes = 30;
-  const microwaveMinutes = 30;
-  const ovenMinutes = 120;
-  const hoodMinutes = 30;
-  const rugMinutesPer10m2 = 10; // 10 minutes per 10m² of rugs
-
   useEffect(() => {
-    // Calculate total minutes based on all options
-    const surfaceMinutes = (surface / 10) * surfaceMinutesPer10m2;
-    const bathroomTotalMinutes = bathrooms * bathroomMinutes;
-    const petTotalMinutes = pets * petMinutes;
-    const rugTotalMinutes = (surfaceRugs / 10) * rugMinutesPer10m2;
-    
-    const totalMinutes = 
-      surfaceMinutes +
-      bathroomTotalMinutes +
-      petTotalMinutes +
-      fridge +
-      microwave +
-      oven +
-      kitchenHood +
-      rugTotalMinutes;
-
-    // Calculate base price based on minutes
-    let calculatedPrice = (totalMinutes / 60) * mainPrice;
-    
-    // Ensure minimum price for areas between 0 and 30m²
-    if (surface <= 30) {
-      calculatedPrice = Math.max(325, calculatedPrice);
-    }
-    
-    // Apply frequency multiplier
-    const selectedOption = frequencyOptions.find(option => option.id === selectedFrequency);
-    if (selectedOption) {
-      calculatedPrice *= selectedOption.multiplier;
+    // Calculate base cleaning time based on surface area
+    if (surface <= 40) {
+      setCleaningTimeWithoutOptions(60);
+    } else if (surface <= 70) {
+      setCleaningTimeWithoutOptions(90);
+    } else if (surface <= 100) {
+      setCleaningTimeWithoutOptions(120);
+    } else if (surface <= 130) {
+      setCleaningTimeWithoutOptions(150);
+    } else if (surface <= 160) {
+      setCleaningTimeWithoutOptions(180);
+    } else if (surface <= 190) {
+      setCleaningTimeWithoutOptions(210);
+    } else if (surface <= 220) {
+      setCleaningTimeWithoutOptions(240);
+    } else if (surface <= 250) {
+      setCleaningTimeWithoutOptions(270);
+    } else if (surface <= 280) {
+      setCleaningTimeWithoutOptions(300);
+    } else if (surface <= 300) {
+      setCleaningTimeWithoutOptions(330);
+    } else {
+      setCleaningTimeWithoutOptions(60);
     }
 
-    setPrice(Number(calculatedPrice.toFixed(2)));
-    
-    // Calculate first-time price with 15% discount
-    const firstTimeCalculatedPrice = calculatedPrice * 0.85;
-    setFirstTimePrice(Number(firstTimeCalculatedPrice.toFixed(2)));
+    const convertToTime = (number) => {
+      let h = Math.floor(number / 60);
+      let m = number % 60;
+      h = h < 10 ? "0" + h : h;
+      m = m < 10 ? "0" + m : m;
+      setTime(`${h}hr${m}min`);
+      
+      // Calculate prices
+      const basePrice = number * (mainPrice / 60);
+      setPrice(
+        selectedFrequency === "Månedligt" || selectedFrequency === "1time"
+          ? (basePrice * 1.25).toFixed(2)
+          : basePrice.toFixed(2)
+      );
+      setFirstTimePrice((basePrice * 0.85).toFixed(2));
+      setPriceSkatDeduction((basePrice * 0.74).toFixed(2));
+    };
 
-    // Calculate tax deduction (26%)
-    const taxDeductionPrice = calculatedPrice * 0.74;
-    setPriceSkatDeduction(Number(taxDeductionPrice.toFixed(2)));
+    // Calculate total cleaning time
+    const totalCleaningTime =
+      bathrooms === 1
+        ? pets +
+          fridge +
+          microwave +
+          oven +
+          sheets +
+          surfaceRugs +
+          cleaningTimeWithoutOptions
+        : pets +
+          (bathrooms - 1) * 20 +
+          fridge +
+          microwave +
+          oven +
+          sheets +
+          surfaceRugs +
+          cleaningTimeWithoutOptions;
+
+    convertToTime(totalCleaningTime);
   }, [
-    surface,
-    bathrooms,
+    cleaningTimeWithoutOptions,
     pets,
+    bathrooms,
     fridge,
     microwave,
     oven,
-    kitchenHood,
+    sheets,
+    surface,
     surfaceRugs,
-    selectedFrequency
+    selectedFrequency,
   ]);
 
   const handleFrequencyChange = (event) => {
-    setSelectedFrequency(Number(event.target.value));
+    setSelectedFrequency(event.target.value);
   };
 
   return (
@@ -133,9 +138,9 @@ const PricingPersonal = () => {
                 <label key={freq} className="flex items-center">
                   <input
                     type="radio"
-                    value={index + 1}
+                    value={freq}
                     className="mr-2"
-                    checked={selectedFrequency === index + 1}
+                    checked={selectedFrequency === freq}
                     onChange={handleFrequencyChange}
                   />
                   {freq}
@@ -157,11 +162,11 @@ const PricingPersonal = () => {
             <div className="flex items-center">
               <Slider
                 handleStyle={{ background: "#1e90ff", borderColor: "#1e90ff" }}
-                defaultValue={0}
+                defaultValue={10}
                 value={surface}
-                min={0}
-                max={300}
-                step={10}
+                min={10}
+                max={200}
+                step={5}
                 onChange={(e) => setSurface(Number(e))}
               />
               <p className="ml-4">{surface}m²</p>
@@ -182,7 +187,7 @@ const PricingPersonal = () => {
                 handleStyle={{ background: "#1e90ff", borderColor: "#1e90ff" }}
                 defaultValue={1}
                 min={1}
-                max={5}
+                max={25}
                 step={1}
                 onChange={(e) => setBathrooms(Number(e))}
               />
@@ -205,7 +210,7 @@ const PricingPersonal = () => {
                 defaultValue={0}
                 min={0}
                 max={surface}
-                step={10}
+                step={5}
                 onChange={(e) => setSurfaceRugs(Number(e))}
               />
               <p className="ml-4">{surfaceRugs}m²</p>
@@ -226,8 +231,8 @@ const PricingPersonal = () => {
                 <input
                   type="radio"
                   className="mr-2"
-                  checked={pets === 1}
-                  onChange={() => setPets(1)}
+                  checked={pets === 30}
+                  onChange={() => setPets(30)}
                 />
                 Ja
               </label>
@@ -255,31 +260,35 @@ const PricingPersonal = () => {
             <div className="flex flex-wrap gap-4">
               <label className="flex items-center">
                 <input
+                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
-                  onChange={(e) => setFridge(e.target.checked ? fridgeMinutes : 0)}
+                  onChange={(e) => setFridge(e.target.checked ? 30 : 0)}
                 />
                 Køleskab
               </label>
               <label className="flex items-center">
                 <input
+                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
-                  onChange={(e) => setMicrowave(e.target.checked ? microwaveMinutes : 0)}
+                  onChange={(e) => setMicrowave(e.target.checked ? 30 : 0)}
                 />
                 Mikrobølgeovn
               </label>
               <label className="flex items-center">
                 <input
+                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
-                  onChange={(e) => setOven(e.target.checked ? ovenMinutes : 0)}
+                  onChange={(e) => setOven(e.target.checked ? 120 : 0)}
                 />
                 Ovn
               </label>
               <label className="flex items-center">
                 <input
+                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
                   type="checkbox"
-                  onChange={(e) => setKitchenHood(e.target.checked ? hoodMinutes : 0)}
+                  onChange={(e) => setSheets(e.target.checked ? 30 : 0)}
                 />
-                Køkkenhætte
+                Sengeklæder
               </label>
             </div>
           </div>

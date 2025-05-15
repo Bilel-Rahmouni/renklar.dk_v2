@@ -2,7 +2,7 @@ import {
   managementTeamImages,
   cleaningTeamImages,
   customerServiceTeamImages,
-} from "../../constants";
+} from "../constants";
 import { MdEmail } from "react-icons/md";
 import { BiLogoLinkedinSquare } from "react-icons/bi";
 import { MdAccountBox } from "react-icons/md";

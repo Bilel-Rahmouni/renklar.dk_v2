@@ -6,7 +6,7 @@ import { PiRug, PiToiletLight, PiDogLight } from "react-icons/pi";
 import { BsHouse } from "react-icons/bs";
 import { CiCalendar } from "react-icons/ci";
 import { MdOutlineKitchen } from "react-icons/md";
-import Button from "./design/Button";
+import Button from "../../design/Button";
 
 const PricingPersonal = () => {
   const mainPrice = 325; // Updated main price
@@ -112,15 +112,15 @@ const PricingPersonal = () => {
   };
 
   return (
-    <div className="relative mb-60 sm:mb-80 md:mb-96 lg:mb-[32rem] mt-60 sm:mt-80 md:mt-96 lg:mt-[32rem] pt-24 sm:pt-32 md:pt-40 lg:pt-48 px-4 md:px-8 lg:px-16 flex flex-col items-center" id="pricing">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-24 sm:mb-32 md:mb-40 text-center font-black">
+    <div className="relative mb-16 sm:mb-24 md:mb-32 lg:mb-40 mt-16 sm:mt-24 md:mt-32 lg:mt-40 py-16 sm:py-20 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 flex flex-col items-center" id="pricing">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-12 sm:mb-16 md:mb-20 text-center font-black">
         Ingen skjulte gebyrer - bare gennemsigtige priser.
       </h1>
-      <h5 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-24 sm:mb-32 md:mb-40 text-center font-medium">
+      <h5 className="text-base sm:text-lg md:text-xl lg:text-2xl mb-12 sm:mb-16 md:mb-20 text-center font-medium">
         Priserne for rengøringsservice i Aarhus koster fra{" "}
         <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold">260</span> Kr./time (ekskl. moms)
       </h5>
-      <div className="relative flex flex-col lg:flex-row items-start justify-around w-full gap-24 sm:gap-32 md:gap-40">
+      <div className="relative flex flex-col lg:flex-row items-start justify-around w-full gap-8 sm:gap-12 md:gap-16 lg:gap-20">
         {/* Left Side - Form Inputs */}
         <div className="relative z-10 flex flex-col w-full lg:w-2/3 space-y-12 sm:space-y-16">
           {/* Frequency of Cleaning */}

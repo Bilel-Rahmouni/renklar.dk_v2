@@ -1,23 +1,23 @@
 import { useEffect, useState, useRef } from "react";
-import Button from "./design/Button";
+import Button from "../../design/Button";
 
 // Import all before images
-import before1 from "../assets/before and after/1before.jpg";
-import before2 from "../assets/before and after/2before.jpg";
-import before3 from "../assets/before and after/3before.jpg";
-import before4 from "../assets/before and after/4before.jpg";
-import before5 from "../assets/before and after/5before.jpg";
-import before6 from "../assets/before and after/6before.jpg";
-import before7 from "../assets/before and after/7before.jpg";
+import before1 from "../../assets/before and after/1before.jpg";
+import before2 from "../../assets/before and after/2before.jpg";
+import before3 from "../../assets/before and after/3before.jpg";
+import before4 from "../../assets/before and after/4before.jpg";
+import before5 from "../../assets/before and after/5before.jpg";
+import before6 from "../../assets/before and after/6before.jpg";
+import before7 from "../../assets/before and after/7before.jpg";
 
 // Import all after images
-import after1 from "../assets/before and after/1after.jpg";
-import after2 from "../assets/before and after/2after.jpg";
-import after3 from "../assets/before and after/3after.jpg";
-import after4 from "../assets/before and after/4after.jpg";
-import after5 from "../assets/before and after/5after.jpg";
-import after6 from "../assets/before and after/6after.jpg";
-import after7 from "../assets/before and after/7after.jpg";
+import after1 from "../../assets/before and after/1after.jpg";
+import after2 from "../../assets/before and after/2after.jpg";
+import after3 from "../../assets/before and after/3after.jpg";
+import after4 from "../../assets/before and after/4after.jpg";
+import after5 from "../../assets/before and after/5after.jpg";
+import after6 from "../../assets/before and after/6after.jpg";
+import after7 from "../../assets/before and after/7after.jpg";
 
 const HeroPersonal = () => {
   const [hours, setHours] = useState(19);

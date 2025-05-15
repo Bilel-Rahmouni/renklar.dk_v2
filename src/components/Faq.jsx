@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import chevron from "../assets/svg/chevron-down.svg";
-import Button from "./design/Button";
+import Button from "../design/Button";
 import { faq } from "../constants";
 import { Link } from "react-router-dom";
 const AccordionItem = ({ header, ...rest }) => (

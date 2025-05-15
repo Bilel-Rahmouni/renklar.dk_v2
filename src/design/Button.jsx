@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
-import ButtonSvg from "../../assets/svg/ButtonSvg";
+import ButtonSvg from "../assets/svg/ButtonSvg";   
 // Define the keyframe for the shine effect
 const shine = keyframes`
   0% {

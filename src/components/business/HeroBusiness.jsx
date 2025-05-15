@@ -1,4 +1,4 @@
-import Button from "./design/Button";
+import Button from "../../design/Button";
 
 const HeroBusiness = () => {
   return (

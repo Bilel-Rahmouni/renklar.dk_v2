@@ -1,5 +1,5 @@
-import { pricingBusiness } from "../constants";
-import Button from "./design/Button";
+import { pricingBusiness } from "../../constants";
+import Button from "../../design/Button";
 
 const ServicesBusiness = () => {
   return (

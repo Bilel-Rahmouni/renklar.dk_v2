@@ -1,6 +1,6 @@
 import React from "react";
 import { socials } from "../constants";
-import Logo from "./design/Logo";
+import Logo from "../design/Logo";
 import { IoMail } from "react-icons/io5";
 import { HiLocationMarker } from "react-icons/hi";
 import { BsClockFill } from "react-icons/bs";

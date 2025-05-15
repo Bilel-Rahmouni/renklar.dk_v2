@@ -4,8 +4,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import TermsAndConditions from "./components/TermsAndConditions.jsx";
 import FaqScreen from "./components/FaqScreen.jsx";
 import App from "./App.jsx";
-import BlogsPersonal from "./components/BlogsPersonal.jsx";
-import BlogsBusiness from "./components/BlogsBusiness.jsx";
+import BlogsPersonal from "./components/private/BlogsPersonal.jsx";
+import BlogsBusiness from "./components/business/BlogsBusiness.jsx";
 import "./index.css";
 
 // Define the router with all routes

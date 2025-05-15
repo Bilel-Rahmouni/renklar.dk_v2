@@ -1,5 +1,5 @@
-import { pricingPersonal } from "../constants";
-import Button from "./design/Button";
+import { pricingPersonal } from "../../constants";
+import Button from "../../design/Button";
 import styled from "styled-components";
 
 const ServiceCard = styled.div`
@@ -11,23 +11,22 @@ const ServiceCard = styled.div`
 
 const ServicesPersonal = () => {
   return (
-    <section id="services" className="px-4 md:pt-24
-     mb-40 md:mb-20 flex flex-col items-center">
+    <section id="services" className="px-4 py-16 sm:py-20 md:py-24 lg:py-32 mb-16 sm:mb-24 md:mb-32 lg:mb-40 flex flex-col items-center">
       <div className="container mx-auto px-4">
         
-      <header className="text-center mb-8">
+      <header className="text-center mb-8 sm:mb-12 md:mb-16">
         <h2 className="text-4xl font-bold tablet:text-[3rem]">
           Find din ideelle plan.
         </h2>
       </header>
-        <div className="text-center mb-12 sm:mb-16"> 
+        <div className="text-center mb-12 sm:mb-16 md:mb-20"> 
           <p className="text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto">
             Vælg den plan, der passer bedst til dine behov. Alle vores rengøringstjenester er miljøvenlige og professionelle.
           </p>
         </div>
 
         {/* Container for service cards */}
-              <div className="w-full h-[30rem] flex p-8 flex-wrap justify-center gap-6">
+              <div className="w-full h-auto min-h-[30rem] flex p-4 sm:p-6 md:p-8 flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
              {pricingPersonal.map((item) => (
               <ServiceCard
                 key={item.id}

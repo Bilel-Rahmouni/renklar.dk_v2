@@ -2,12 +2,12 @@ import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 import { navigationPersonal, navigationBusiness } from "../constants";
 import MenuSvg from "../assets/svg/MenuSvg";
-import { HamburgerMenu } from "./design/Header";
+import { HamburgerMenu } from "../design/Header";
 import { useContext, useEffect, useState } from "react";
 import { typeContext } from "../App";
 import OfferHeader from "./OfferHeader";
-import Logo from "./design/Logo";
-import Button from "./design/Button";
+import Logo from "../design/Logo";
+import Button from "../design/Button";
 const Header = () => {
   const [selectedOption, setSelectedOption] = useState("Privat");
   const [type, setType] = useContext(typeContext);

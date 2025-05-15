@@ -3,7 +3,7 @@ import { TbLeaf, TbPigMoney } from "react-icons/tb";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { HiOutlineSparkles } from "react-icons/hi2";
 import employeeImage from "../assets/employee.jpg"; 
-import Logo from "./design/Logo";
+import Logo from "../design/Logo";
 import styled from "styled-components";
 
 const IconWrapper = styled.div`

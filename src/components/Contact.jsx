@@ -104,6 +104,9 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (typeof window !== 'undefined' && typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion();
+    }
     try {
       const response = await fetch("https://formspree.io/f/mldjbenn", {
         method: "POST",

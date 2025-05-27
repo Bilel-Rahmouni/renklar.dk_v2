@@ -126,8 +126,7 @@ const HeroPersonal = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="text-center">
               <p className="text-sm text-black-300">Priser fra</p>
-              <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r
-           from-blue-600 to-sky-400 bg-clip-text text-transparent">260 Kr./time</p>
+              <p className="text-3xl sm:text-4xl font-bold text-blue-600">240 Kr./time</p>
               <p className="text-sm text-black-300">(ekskl. moms)</p>
             </div>
             <div className="text-center">

@@ -3,7 +3,11 @@ import house from "../assets/house.jpg";
 import property from "../assets/property.jpg";
 import rental from "../assets/rental.png";
 import cleaningoffice from "../assets/cleaningoffice.png";
-import commerce from "../assets/commerce.png";
+import commerce from "../assets/commerce.png"; 
+import WashingCar from "../assets/Washing-a-Car.jpeg";
+import window from "../assets/window.jpg";
+import gardening from "../assets/gardening.jpg";
+
 export const navigationPersonal = [
   {
     id: "0",
@@ -53,10 +57,37 @@ export const navigationBusiness = [
     url: "/blogs-business",
   },
 ];
+export const navigationCars = [
+  {
+    id: "0",
+    title: "Vores service",
+    url: "#services",
+  },
+  {
+    id: "1",
+    title: "Prissætning",
+    url: "#pricing",
+  },
+  {
+    id: "2",
+    title: "Om os",
+    url: "#about",
+  },
+  {
+    id: "3",
+    title: "Kontakt os",
+    url: "#contact",
+  },
+  {
+    id: "4",
+    title: "Blogs",
+    url: "/blogs-cars",
+  },    
+];
 export const pricingPersonal = [
   {
     id: "0",
-    title: "House",
+    title: "Hjem",
     img: house,
     description: "Forvandler hjem til oaser med pletfrie rum.",
     price: "240",
@@ -65,18 +96,49 @@ export const pricingPersonal = [
   },
   {
     id: "1",
-    title: "Moving",
+    title: "Flytning",
     img: property,
     description: "Designet til at afhjælpe stressen ved at flytte.",
-    price: null,
+    price: "240",
     features: ["Hovedrengøringen."],
     bg: "#FF98E2",
   },
+  // {
+  //   id: "2",
+  //   title: "Vinduespudsning",
+  //   img: window,
+  //   description: "Professionel vinduespolering for et krystalklart udsyn.",
+  //   price: "150",
+  //   features: ["Indvendig og udvendig rengøring", "Fjernelse af kalkaflejringer", "Polering af vinduesrammer"],
+  //   bg: "#2ABBA7",
+  // },
+  // {
+  //   id: "3",
+  //   title: "Bilrengøring",
+  //   img: WashingCar,
+  //   description: "Komplet bilvask og polering for en skinnende bil.",
+  //   price: "200",
+  //   features: ["Udvendig vask", "Indvendig rengøring", "Polering og voks"],
+  //   bg: "#F0284A",
+  // },
+  // {
+  //   id: "4",
+  //   title: "Havearbejde",
+  //   img: gardening,
+  //   description: "Professionel havearbejde for et smukt og velplejet udemiljø.",
+  //   price: "180",
+  //   features: [
+  //     "Græsslåning og beskæring",
+  //     "Fjernelse af ukrudt",
+  //     "Plantning og vedligeholdelse"
+  //   ],
+  //   bg: "#6FCF97",
+  // },
 ];
 export const pricingBusiness = [
   {
     id: "0",
-    title: "Commercial",
+    title: "Erhverv",
     description: "Forhøjelse af brands med skinnende, indbydende rum.",
     price: "240",
     img: commerce,
@@ -89,7 +151,7 @@ export const pricingBusiness = [
   },
   {
     id: "1",
-    title: "Office",
+    title: "Kontor",
     img: cleaningoffice,
     description: "Forøg produktiviteten med rene arbejdsomgivelser.",
     price: null,
@@ -98,14 +160,52 @@ export const pricingBusiness = [
   },
   {
     id: "2",
-    title: "Property",
+    title: "Ejendom",
     img: rental,
     description: "Bekvem og stressfri løsning for et rent lejemål.",
     price: null,
     features: ["Hovedrengøringen.", "Vask.", "Oprydning."],
     bg: "#858DFF",
   },
-];
+  // {
+  //   id: "3",
+  //   title: "Bilflåde",
+  //   img: WashingCar,
+  //   description: "Professionel rengøring af firmabiler og flåder.",
+  //   price: "200",
+  //   features: [
+  //     "Regelmæssig vask af firmabiler",
+  //     "Indvendig og udvendig rengøring",
+  //     "Polering og voks",
+  //     "Fleksibel aftaleplan"
+  //   ],
+  //   bg: "#4A90E2",
+  // },
+  // {
+  //   id: "4",
+  //   title: "Havearbejde",
+  //   img: gardening,
+  //   description: "Professionel vedligeholdelse af grønne områder for virksomheder.",
+  //   price: "180",
+  //   features: [
+  //     "Græsslåning og beskæring",
+  //     "Fjernelse af ukrudt",
+  //     "Plantning og vedligeholdelse"
+  //   ],
+  //   bg: "#6FCF97",
+  // },
+];  
+export const pricingCars = [
+  {
+    id: "0",
+    title: "Car Wash",
+    img: WashingCar,
+    description: "Bekvem og stressfri løsning for et rent lejemål.",
+    price: "100",
+    features: ["Hovedrengøringen.", "Vask.", "Oprydning."],
+    bg: "#858DFF",
+  },
+];  
 export const socials = [
   {
     id: "0",

@@ -11,34 +11,42 @@ import Faq from "./components/Faq";
 import { createContext, useState } from "react";
 import Reviews from "./components/Reviews";
 import CookieConsentBanner from "./components/CookieConsent";
-import ScriptLoader from "./components/ScriptLoader";
+import ScriptLoader from "./components/ScriptLoader"; 
+import { SelectedServiceProvider } from "./context/SelectedServiceContext";
 export const typeContext = createContext();
 const App = () => {
   const [type, setType] = useState("Privat");
   return (
-    <typeContext.Provider value={[type, setType]}>
-      <Header type={type} setType={setType} />
-      {type == "Privat" && (
-        <>
-          <HeroPersonal />
-          <ServicesPersonal />
-          <PricingPersonal />
-        </>
-      )}
-      {type == "Erhverv" && (
-        <>
-          <HeroBusiness />
-          <ServicesBusiness />
-        </>
-      )}
-      <About />
-      <Reviews />
-      <Contact />
-      <Faq />
-      <Footer />
-      <CookieConsentBanner />
-      <ScriptLoader />
-    </typeContext.Provider>
+    <SelectedServiceProvider>
+      <typeContext.Provider value={[type, setType]}>
+        <Header type={type} setType={setType} />
+        {type == "Privat" && (
+          <>
+            <HeroPersonal />
+            <ServicesPersonal />
+            <PricingPersonal />
+            <About />
+            <Reviews />
+            <Contact />
+            <Faq />
+            <Footer />
+          </>
+        )}
+        {type == "Erhverv" && (
+          <>
+            <HeroBusiness />
+            <ServicesBusiness />
+            <About />
+            <Reviews />
+            <Contact />
+            <Faq />
+            <Footer />
+          </>
+        )} 
+        <CookieConsentBanner />
+        <ScriptLoader />
+      </typeContext.Provider>
+    </SelectedServiceProvider>
   );
 };
 

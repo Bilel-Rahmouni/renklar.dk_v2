@@ -5,6 +5,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import styled from "styled-components";
 import hrImage from "../assets/hr.jpg";
+import Button from "../design/Button";
 
 const FormInput = styled.input`
   @apply w-full px-5 py-4 rounded-xl border-2 border-neutral-200 bg-gray-100
@@ -138,10 +139,9 @@ const Contact = () => {
     <section id="contact" className="py-16 sm:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r
-           from-blue-600 to-sky-400 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-4 md:mb-4 text-center font-black">
             For et tilbud på rengøring i Aarhus og omegn
-          </h2>
+          </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Få et uforpligtende tilbud. Kontakt os, og vi vil kontakte dig inden for 1 time.
           </p>
@@ -283,16 +283,16 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={disabled}
-                  className={`w-full py-4 px-6 text-lg font-bold text-white 
-                    bg-gradient-to-r from-blue-600 to-sky-400
-                    rounded-xl shadow-lg 
-                    transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl
-                    focus:ring-4 focus:ring-blue-200 
-                    ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+                  className="w-full"
                 >
-                  <span className="flex items-center justify-center gap-2">
+                  <Button
+                    type="submit"
+                    shiny={true}
+                    className="w-full py-4 text-lg font-semibold rounded-full"
+                    disabled={disabled}
+                  >
                     Send besked
-                  </span>
+                  </Button>
                 </button>
               </form>
             </div>

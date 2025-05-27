@@ -92,7 +92,7 @@ const ServicesPersonal = () => {
   };
 
   return (
-    <section id="services" className="py-24 bg-gray-50">
+    <section id="services" className="py-24">
       <div className="container mx-auto px-4">
         <header className="text-center mb-16">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-4 md:mb-4 text-center font-black">
@@ -107,10 +107,11 @@ const ServicesPersonal = () => {
         <div className="flex justify-center gap-8 mb-12">
           {pricingPersonal.map((item) => {
             let serviceType = item.title.toLowerCase();
-            if (serviceType === 'flytning' || serviceType === 'hjem') serviceType = 'home';
-            if (serviceType === 'vinduespudsning') serviceType = 'window';
-            if (serviceType === 'bilrengøring') serviceType = 'car';
-            if (serviceType === 'havearbejde') serviceType = 'gardening';
+            if (serviceType === 'flytning') serviceType = 'move out';
+            else if (serviceType === 'hjem') serviceType = 'home';
+            else if (serviceType === 'vinduespudsning') serviceType = 'window';
+            else if (serviceType === 'bilrengøring') serviceType = 'car';
+            else if (serviceType === 'havearbejde') serviceType = 'gardening';
             return (
               <ServiceIcon
                 key={item.id}

@@ -99,7 +99,7 @@ export const pricingPersonal = [
     title: "Flytning",
     img: property,
     description: "Designet til at afhjælpe stressen ved at flytte.",
-    price: "240",
+    price: "280",
     features: ["Hovedrengøringen."],
     bg: "#FF98E2",
   },

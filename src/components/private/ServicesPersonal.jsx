@@ -173,6 +173,7 @@ const ServicesPersonal = () => {
                         <div>
                           <span className="text-xl font-bold text-gray-900">{item.price} DKK</span>
                           <span className="text-base text-gray-500 ml-1">/time</span>
+                          <span className="text-xs text-gray-400 ml-2">(ekskl. moms)</span>
                         </div>
                       )}
                       <Button
